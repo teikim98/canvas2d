@@ -7,20 +7,22 @@ class Game {
     }
 
     update(deltaTime) {
+
     }
 
     draw(){
         this.ctx.clearRect(0,0,this.width,this.height);
     }
 
-    anmate(timeStamp){
+    animate(timeStamp){
         const deltaTime = timeStamp - this.lastTime;
         this.deltaTime = deltaTime;
+        this.lastTime = timeStamp;
 
         this.update(deltaTime);
         this.draw();
 
-        requestAnimationFrame(this.anmate.bind(this));
+        requestAnimationFrame(this.animate.bind(this));
     }
 
 }
